@@ -1,0 +1,226 @@
+/* Font-faces */
+
+@font-face {
+  font-family: Narkissim;
+  src: url(../assets/fonts/narkisim_fontef/Narkissim-Bold-TRIAL.otf);
+}
+
+@font-face {
+  font-family: Narkissim;
+  src: url(../assets/fonts/narkisim_fontef/Narkissim-Regular-TRIAL.otf);
+}
+
+@font-face {
+  font-family: HadassahFriedlaender;
+  src: url(../assets/fonts/hadassah_friedlaender_fontef/HadassahFriedlaender-Regular.woff2);
+}
+
+@font-face {
+  font-family: FrankG;
+  font-weight: 900;
+  src: url(../assets/fonts/frank_g_hagilda/FrankG-Black.woff2);
+}
+@font-face {
+  font-family: FrankG;
+  font-weight: 700;
+  src: url(../assets/fonts/frank_g_hagilda/FrankG-Bold.woff2);
+}
+@font-face {
+  font-family: FrankG;
+  font-weight: 00;
+  src: url(../assets/fonts/frank_g_hagilda/FrankG-Regular.woff2);
+}
+
+/* Reset rules */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+html {
+  /* TODO: Check how to use this. */
+  /* color-scheme: dark light; */
+}
+
+body {
+  min-width: 100vw;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Basic rules */
+
+body {
+  padding: 3vw;
+}
+
+.body-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+/* Utility rules */
+
+.span-all-cols {
+  grid-column: 1/-1;
+}
+
+
+/* ###################### */
+
+
+.black-contrast {
+  font-family: FrankG;
+  font-weight: bold;
+  /* font-weight: 900; */
+}
+
+.section-main {
+  gap: 1em;
+}
+
+.grid-1-col {
+  /* display: grid; */
+}
+
+
+.subtitle-text {
+  grid-column: span 2;
+}
+
+.site-header {
+  align-items: baseline;
+  /* grid-column: span 4; */
+}
+
+.site-header-grid {
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-template-columns: subgrid;
+}
+
+
+.header-title {
+  flex-direction: column;
+  justify-items: center;
+}
+
+.site-header-grid-top {
+  /* grid-row: 1; */
+}
+
+h2 {
+}
+
+.site-header-links {
+  grid-column: span 2;
+}
+.site-header-title {
+  grid-column: span 2;
+}
+
+a {
+  color: inherit;
+  text-decoration-line: inherit;
+}
+
+page-link {
+  text-align: left;
+  grid-column: span 2;
+}
+
+p {
+  /* font-family: Narkissim; */
+  font-family: HadassahFriedlaender;
+  line-height: 1.55em;
+}
+
+.site-main-grid {
+  /* display: grid; */
+  gap: 3em;
+}
+
+.article-section {
+  /* display: grid; */
+  gap: 2em;
+}
+
+.article-details {
+  /* display: grid; */
+  /* grid-template-columns: repeat(auto-fit, minmax(50px, 1fr)); */
+  grid-area: bottom;
+  text-align: center;
+}
+
+h1 {
+  font-size: 5em;
+  line-height: 0.8em;
+  margin-bottom: 0.2em;
+  text-align: center;
+  /* grid-column: span 5; */
+}
+
+.subgrid {
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+.title-text {
+  /* grid-column: span 2; */
+  /* background-color: red !important; */
+}
+
+.section-p {
+  font-weight: 400;
+}
+
+.grid-col-span-5 {
+  /* grid-column: span 5; */
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.grid-col-span-3 {
+  /* grid-column: span 3; */
+}
+
+.grid-cols {
+  /* display: grid; */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  column-gap: 3vw;
+}
+
+.article-main {
+  /* margin-top: 5vw; */
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  * {
+    background-color: red !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  * {
+    background-color: yellow !important;
+  }
+}
