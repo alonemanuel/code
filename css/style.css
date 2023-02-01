@@ -48,6 +48,8 @@
   /* Sizing and spacing */
   --small-gap: 3rem;
   --tiny-gap: 1rem;
+
+  --accent-color: red;
 }
 
 /* Reset rules */
@@ -98,7 +100,7 @@ video {
 
 .narrow-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10ch, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(8ch, 1fr));
   gap: var(--tiny-gap);
 }
 
@@ -125,11 +127,16 @@ html {
   font: var(--font-running-serif);
 }
 
+nav img {
+  margin: 0.2rem;
+  position: sticky;
+  top: 0.8rem;
+}
 
 body {
   /* padding: calc(5vw); */
   display: grid;
-  grid-template-columns: minmax(5ch, 8ch) 1fr;
+  grid-template-columns: minmax(3ch, 5ch) 1fr;
   /* gap: var(--small-gap); */
 }
 
@@ -143,7 +150,7 @@ nav {
 
 body > *:not(nav) {
   /* grid-column: -1; */
-  margin: 0 var(--small-gap);
+  margin: 0 0.7rem;
 }
 
 .grid-cols > aside {
@@ -317,4 +324,12 @@ h1 {
   margin-bottom: 0.2em;
   text-align: center;
   /* grid-column: span 5; */
+}
+
+span.acronym {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--accent-color);
+  text-decoration-thickness: 0.2rem;
+  cursor: pointer;
 }
