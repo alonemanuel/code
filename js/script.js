@@ -3,13 +3,22 @@ ACRONYMS = {
     'עכת"ד': 'עד כאן תוכן דבריו',
     'דר"י': 'דרבי',
     'הרמ"א': 'הרבי משה איסרליש',
-    'עיי"ש':'עיין שם',
-    'אע"פ':'אף על פי',
-    'ע"פ':'על פי',
-    'בכה"ג':'בכהאי גונא',
-    'וא"כ':'ואחר כך',
-    'עכ"פ':'על כל פנים',
-    'עכ"ד':'עד כאן דבריו'
+    'עיי"ש': 'עיין שם',
+    'אע"פ': 'אף על פי',
+    'ע"פ': 'על פי',
+    'בכה"ג': 'בכהאי גונא',
+    'וא"כ': 'ואחר כך',
+    'עכ"פ': 'על כל פנים',
+    'עכ"ד': 'עד כאן דבריו',
+    'שו"ת': 'שאלות ותשובות',
+    'רמב"ם': 'רבי משה בן מימון',
+    'קיי"ל': 'קיימא לןד',
+    'שו"ע': 'שולחן ערוך',
+    'חו"מ': 'חול המועד',
+    'מהדו"ק': 'מהדורה קמה',
+    'סק"ג': `סעיף קטן ג'`
+
+
 
 
 }
@@ -75,7 +84,7 @@ function walk(root) {
     //     console.debug(`key: ${key}, val: ${value}`);
     // }
 
-    console.debug(`walking ${root}...`);
+    // console.debug(`walking ${root}...`);
 
     if (root.nodeType == 3) // text node
     {
@@ -94,17 +103,38 @@ function setDarkModeButton() {
 
 function initAcronyms() {
     let acronyms = document.getElementsByClassName(`acronym`);
-    console.debug(acronyms);
+    // console.debug(acronyms);
     for (let acronym of acronyms) {
-        console.debug(acronym);
+        // console.debug(acronym);
         let origText = acronym.textContent;
         let mappedText = ACRONYMS[origText];
         // acronym.classList.remove('acronym');
         acronym.addEventListener(`click`, function () {
             let text = acronym.textContent;
+            // acronym.style.visibility = 'hidden';
+            acronym.style.opacity = 0;
             acronym.textContent = (text == origText) ? mappedText : origText;
+            // acronym.style.visibility = 'visible';
+            // acronym.style.opacity = 1;
         });
     }
+}
+
+function setLoadingDiv() {
+    let body = document.body,
+        html = document.documentElement;
+
+    let height = Math.max(body.scrollHeight, body.offsetHeight,
+        html.clientHeight, html.scrollHeight, html.offsetHeight);
+    
+    window.addEventListener('scroll', (e) => {
+    
+        let progression = window.scrollY / height;
+        // console.debug(progression);
+        let screenHeight = window.innerHeight;
+        let divHeight = progression * screenHeight;
+        document.getElementById('loadingBar').style.minHeight = `${divHeight}px`;
+    });
 }
 
 function main() {
@@ -117,8 +147,21 @@ function main() {
         initAcronyms();
     };
     setDarkModeButton();
+    setLoadingDiv();
 }
 
 main();
 
-// להזמין מה זה הפס האדום (המתרגם)
+// להזמין מה זה הפס האדום (המתרגם);
+
+// שהצד יהיה ניווט בין כתבות
+// וגם לודבר  כמה קריאה נשארה לך
+// אולי אייקונים כמו בית כנסת וקטוריים
+// אולי מספרים
+// יותר מעניין ממספרים
+// אולי לפתוח תפריט צד, אבל בלי יותר מדי פריקשן, אם בן אדם אדם רוצה לקרוא כתבה
+// אז שיקרא
+
+// אולי בהובר נפתח ובלחיצה נכנס
+// אולי טקסט שנפתח כשלוחצים ודוחף את השאר;
+// להכניס כפתור שקופץ למעלה מהסוף של הכתבות
