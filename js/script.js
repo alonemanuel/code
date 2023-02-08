@@ -145,12 +145,16 @@ function setHeadersClicks() {
         header.style.cursor = 'pointer';
         let originalPosition = header.getBoundingClientRect().top;
         console.log(`${originalPosition}`);
+        let articleDiv = header.parentNode.parentNode;
+        let articleDivTopPadding = window.getComputedStyle(articleDiv).paddingTop;
         header.addEventListener(CLICK_EVENT, function () {
             // header.parentNode.parentNode.scrollTop = 0;
-            console.log(header.parentNode.parentNode);
-            let articleDiv =header.parentNode.parentNode; 
-            // .style.color = '#303030';
-            window.scroll({top:articleDiv.offsetTop})
+            // console.log(header.parentNode.parentNode);
+            // // console.log(articleDivTopPadding);
+            // // .style.color = '#303030';
+            // console.log(articleDivTopPadding);
+            console.log(articleDiv.style.paddingTop);
+            window.scroll({ top: articleDiv.offsetTop + parseFloat(articleDivTopPadding)})
             // window.scrollTo({ top: originalPosition + window.scrollY });
             // this.scrollIntoView({ block: 'start' });
         });

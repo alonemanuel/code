@@ -52,7 +52,7 @@
   /* Font styles */
   --base-font-size: 12px;
   --font-biggest-serif: 700 1.4rem/1.5rem FrankG, serif;
-  --font-medium-serif: 700 1.7rem/1.5rem Narkissim, serif;
+  --font-medium-serif: 700 3.4rem/0.9em Narkissim, serif;
   --font-running-serif: 400 1rem/1.5rem HadassahFriedlaender, serif;
   --font-big-block: 400 1.2rem/1.3rem HaimG, sans-serif;
   --font-small-block: 400 1rem/1.1rem HaimG, sans-serif;
@@ -171,6 +171,10 @@ body > *:not(nav) {
   margin: 0 0.7rem;
 }
 
+body > main {
+  margin: 2rem;
+}
+
 .grid-cols > aside {
   grid-column: span 2;
 }
@@ -227,6 +231,7 @@ article {
 
 article h1{
   font: var(--font-medium-serif);
+  letter-spacing: -0.05em;
 }
 
 /* ////////////////// */
