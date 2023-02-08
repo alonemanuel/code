@@ -126,15 +126,35 @@ function setLoadingDiv() {
 
     let height = Math.max(body.scrollHeight, body.offsetHeight,
         html.clientHeight, html.scrollHeight, html.offsetHeight);
-    
+
     window.addEventListener('scroll', (e) => {
-    
+
         let progression = window.scrollY / height;
         // console.debug(progression);
         let screenHeight = window.innerHeight;
         let divHeight = progression * screenHeight;
         document.getElementById('loadingBar').style.minHeight = `${divHeight}px`;
     });
+}
+
+const CLICK_EVENT = 'click';
+function setHeadersClicks() {
+    let articleHeaders = document.querySelectorAll('article h1');
+    console.log(articleHeaders);
+    for (let header of articleHeaders) {
+        header.style.cursor = 'pointer';
+        let originalPosition = header.getBoundingClientRect().top;
+        console.log(`${originalPosition}`);
+        header.addEventListener(CLICK_EVENT, function () {
+            // header.parentNode.parentNode.scrollTop = 0;
+            console.log(header.parentNode.parentNode);
+            let articleDiv =header.parentNode.parentNode; 
+            // .style.color = '#303030';
+            window.scroll({top:articleDiv.offsetTop})
+            // window.scrollTo({ top: originalPosition + window.scrollY });
+            // this.scrollIntoView({ block: 'start' });
+        });
+    }
 }
 
 function main() {
@@ -148,6 +168,7 @@ function main() {
     };
     setDarkModeButton();
     setLoadingDiv();
+    setHeadersClicks();
 }
 
 main();

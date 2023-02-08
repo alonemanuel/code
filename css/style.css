@@ -30,8 +30,18 @@
 }
 @font-face {
   font-family: FrankG;
-  font-weight: 00;
+  font-weight: 400;
   src: url(../assets/fonts/frank_g_hagilda/FrankG-Regular.woff2);
+}
+@font-face {
+  font-family: HaimG;
+  font-weight: 400;
+  src: url(../assets/fonts/haim_hagilda/HaimG-Regular.otf);
+}
+@font-face {
+  font-family: HaimG;
+  font-weight: 700;
+  src: url(../assets/fonts/haim_hagilda/HaimG-Bold.otf);
 }
 
 /* Variables */
@@ -44,12 +54,16 @@
   --font-biggest-serif: 700 1.4rem/1.5rem FrankG, serif;
   --font-medium-serif: 700 1.7rem/1.5rem Narkissim, serif;
   --font-running-serif: 400 1rem/1.5rem HadassahFriedlaender, serif;
+  --font-big-block: 400 1.2rem/1.3rem HaimG, sans-serif;
+  --font-small-block: 400 1rem/1.1rem HaimG, sans-serif;
 
   /* Sizing and spacing */
   --small-gap: 3rem;
   --tiny-gap: 1rem;
 
   --accent-color: red;
+  --dark-color: black;
+  --light-color: white;
 }
 
 /* Reset rules */
@@ -71,6 +85,7 @@
 html {
   /* TODO: Check how to use this. */
   /* color-scheme: dark light; */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -369,3 +384,18 @@ body::-webkit-scrollbar {
   position: absolute;
   bottom: 0;
 }
+
+
+.popup {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  font: var(--font-big-block);
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: center;
+}
+
+.popup h1{
+
+}
+
