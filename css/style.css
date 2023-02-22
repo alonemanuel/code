@@ -620,10 +620,10 @@ main > article > main {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  -webkit-text-stroke: 1px black;
+  /* -webkit-text-stroke: 1px black; */
 }
 .habala .zion p {
-  -webkit-text-stroke: 1px black;
+  /* -webkit-text-stroke: 1px black; */
 }
 
 .habala h1.title {
