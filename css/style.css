@@ -176,7 +176,7 @@ nav img {
 body {
   /* padding: calc(5vw); */
   display: grid;
-  grid-template-columns: minmax(3ch, 5ch) 1fr;
+  grid-template-columns: minmax(5ch, 7ch) 1fr;
   /* gap: var(--small-gap); */
 }
 
