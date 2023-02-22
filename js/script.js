@@ -16,7 +16,28 @@ ACRONYMS = {
     'שו"ע': 'שולחן ערוך',
     'חו"מ': 'חול המועד',
     'מהדו"ק': 'מהדורה קמה',
-    'סק"ג': `סעיף קטן ג'`
+    'סק"ג': `סעיף קטן ג'`,
+    'אי"ז': `אין זה`,
+    'צ"ב': `צריך בדיקה`,
+    'הרי"ז': `הרי זה`,
+    'ע"ז': `עבודה זרה`,
+    'אחרי"ז': `אחרי זה`,
+    'לענ"ד': `לעניות דעתי`,
+    'ומשא"כ': `ומה שאין כן`,
+    'ב"ק': `בבא קמא`,
+    'רע"א': `ראש עמוד א'`,
+    'רס"ג': `רב סעדיה גאון`,
+    'בי"ד': `בית דין`,
+    'ילקו"ש': `ילקוט שמעוני`,
+    'מהרש"ל': `מורנו הרב שלמה לוריא`,
+    'הגרי"פ': `הגאון רבי ירוחם פישל פרלא`,
+    'הרי"ף': `הרב יצחק אלפסי`,
+    'הרא"ש': `הרב אשר בן יחיאל`,
+    'הגר"ז': `הגאון רבי זלמן`,
+    "פר'": `פרשת`,
+    'עוה"ב': `עולם הבא`,
+    'מסי"נ': `מסירות נפש`,
+
 
 
 
@@ -38,6 +59,71 @@ function customizeTheme() {
     // });
 }
 
+
+
+
+let NUM_DOTS = 12;
+let FADE_FACTOR = .8;
+
+let dots = [];
+let mouse = {
+    x: 0,
+    y: 0
+};
+
+var Dot = function () {
+    this.x = 0;
+    this.y = 0;
+    this.node = (function () {
+        let n = document.createElement(`div`);
+        n.className = `trail`;
+        document.body.appendChild(n);
+        return n;
+    }());
+};
+
+Dot.prototype.draw = function () {
+    this.node.style.left = `${this.x}px`;
+    this.node.style.top = `${this.y}px`;
+};
+
+
+function initDrawing() {
+
+    for (const i of Array(NUM_DOTS).keys()) {
+        let d = new Dot();
+        dots.push(d);
+    }
+
+
+    addEventListener(`mousemove`, function (event) {
+        mouse.x = event.pageX;
+        mouse.y = event.pageY;
+    });
+
+
+}
+function draw() {
+    let lastX = dots.pe
+    // console.log(`Drawing...`);
+    let x = mouse.x;
+    let y = mouse.y;
+    // console.log(`x: ${x}, y: ${y}...`);
+    dots.forEach(function (dot, index, dots) {
+        let nextDot = dots[index + 1] || dots[0];
+        dot.x = x;
+        dot.y = y;
+        dot.draw();
+        x += (nextDot.x - dot.x) * FADE_FACTOR;
+        y += (nextDot.y - dot.y) * FADE_FACTOR;
+    });
+}
+
+function animate() {
+    // console.log(`Animating...`);
+    draw();
+    requestAnimationFrame(animate);
+}
 
 
 function shrinkToMinWidth() {
@@ -112,7 +198,7 @@ function initAcronyms() {
         acronym.addEventListener(`click`, function () {
             let text = acronym.textContent;
             // acronym.style.visibility = 'hidden';
-            acronym.style.opacity = 0;
+            // acronym.style.opacity = 0;
             acronym.textContent = (text == origText) ? mappedText : origText;
             // acronym.style.visibility = 'visible';
             // acronym.style.opacity = 1;
@@ -154,11 +240,123 @@ function setHeadersClicks() {
             // // .style.color = '#303030';
             // console.log(articleDivTopPadding);
             console.log(articleDiv.style.paddingTop);
-            window.scroll({ top: articleDiv.offsetTop + parseFloat(articleDivTopPadding)})
+            window.scroll({ top: articleDiv.offsetTop + parseFloat(articleDivTopPadding) })
             // window.scrollTo({ top: originalPosition + window.scrollY });
             // this.scrollIntoView({ block: 'start' });
         });
     }
+}
+
+function setProgBars() {
+    let body = document.body,
+        html = document.documentElement;
+
+    let height = Math.max(body.scrollHeight, body.offsetHeight,
+        html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+
+
+    // let computedWidth = window.getComputedStyle(progBar).width;
+
+    window.addEventListener('scroll', (e) => {
+
+        let progression = window.scrollY / height;
+        // console.debug(progression);
+        let screenHeight = window.innerHeight;
+        let divHeight = progression * screenHeight;
+
+
+        let progBars = document.querySelectorAll('.progBar');
+        for (let progBar of progBars) {
+            // let divWidth = progression * computedWidth;
+            console.log(progBar);
+            progBar.style.maxWidth = `${progression * 100}%`;
+        }
+
+        document.getElementById('loadingBar').style.minHeight = `${divHeight}px`;
+    });
+
+
+
+    let NUM_DOTS = 12;
+    let FADE_FACTOR = .8;
+
+    let dots = [];
+    let mouse = {
+        x: 0,
+        y: 0
+    };
+
+    var Dot = function () {
+        this.x = 0;
+        this.y = 0;
+        this.node = (function () {
+            let n = document.createElement(`div`);
+            n.className = `trail`;
+            document.body.appendChild(n);
+            return n;
+        }());
+    };
+
+    Dot.prototype.draw = function () {
+        this.node.style.left = `${this.x}px`;
+        this.node.style.top = `${this.y}px`;
+    };
+
+
+    function initDrawing() {
+
+        for (const i of Array(NUM_DOTS).keys()) {
+            let d = new Dot();
+            dots.push(d);
+        }
+
+
+        addEventListener(`mousemove`, function (event) {
+            mouse.x = event.pageX;
+            mouse.y = event.pageY;
+        });
+
+
+    }
+    function draw() {
+        let lastX = dots.pe
+        // console.log(`Drawing...`);
+        let x = mouse.x;
+        let y = mouse.y;
+        // console.log(`x: ${x}, y: ${y}...`);
+        dots.forEach(function (dot, index, dots) {
+            let nextDot = dots[index + 1] || dots[0];
+            dot.x = x;
+            dot.y = y;
+            dot.draw();
+            x += (nextDot.x - dot.x) * FADE_FACTOR;
+            y += (nextDot.y - dot.y) * FADE_FACTOR;
+        });
+    }
+
+    function animate() {
+        // console.log(`Animating...`);
+        draw();
+        requestAnimationFrame(animate);
+    }
+
+    let addItem = function () {
+        var text = taskInput.value;
+        var li = document.createElement('li');
+        li.innerHTML = text;
+        incompleteTasks.appendChild(li);
+    }
+
+    var listDivId = 'mainThingsList';
+    var listDivElem = document.getElementById(listDivId);
+
+    var lastPressed = -1;
+
+}
+
+function initDrawing() {
+
 }
 
 function main() {
@@ -171,9 +369,101 @@ function main() {
         initAcronyms();
     };
     setDarkModeButton();
-    setLoadingDiv();
+    // setLoadingDiv();
     setHeadersClicks();
+    // setProgBars();
+
+
+    initDrawing();
+    animate();
+
+
 }
+
+
+
+// let NUM_DOTS = 12;
+// let FADE_FACTOR = .8;
+
+// let dots = [];
+// let mouse = {
+//   x: 0,
+//   y: 0
+// };
+
+// body = 
+window.onload =  ()=> {
+    var Dot = function () {
+        this.x = 0;
+        this.y = 0;
+        this.node = (function () {
+            //   console.debug(node);
+            let n = document.createElement(`div`);
+            console.debug('n: ' + n);
+            n.classList.add(`trail`);
+            Document.body.appendChild(n);
+            return n;
+        }());
+    };
+    
+}
+
+Dot.prototype.draw = function () {
+    this.node.style.left = `${this.x}px`;
+    this.node.style.top = `${this.y}px`;
+};
+
+
+function initDrawing() {
+
+    for (const i of Array(NUM_DOTS).keys()) {
+        let d = new Dot();
+        dots.push(d);
+    }
+
+
+    addEventListener(`mousemove`, function (event) {
+        mouse.x = event.pageX;
+        mouse.y = event.pageY;
+    });
+
+
+}
+function draw() {
+    let lastX = dots.pe
+    // console.log(`Drawing...`);
+    let x = mouse.x;
+    let y = mouse.y;
+    // console.log(`x: ${x}, y: ${y}...`);
+    dots.forEach(function (dot, index, dots) {
+        let nextDot = dots[index + 1] || dots[0];
+        dot.x = x;
+        dot.y = y;
+        dot.draw();
+        x += (nextDot.x - dot.x) * FADE_FACTOR;
+        y += (nextDot.y - dot.y) * FADE_FACTOR;
+    });
+}
+
+function animate() {
+    // console.log(`Animating...`);
+    draw();
+    requestAnimationFrame(animate);
+}
+
+let addItem = function () {
+    var text = taskInput.value;
+    var li = document.createElement('li');
+    li.innerHTML = text;
+    incompleteTasks.appendChild(li);
+}
+
+var listDivId = 'mainThingsList';
+var listDivElem = document.getElementById(listDivId);
+
+var lastPressed = -1;
+
+
 
 main();
 
