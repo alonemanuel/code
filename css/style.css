@@ -625,3 +625,10 @@ main > article > main {
 .habala h1.title {
   color: white;
 }
+
+.habala article main p {
+  /* padding-inline: 15vw; */
+  font-size: 19px !important;
+  line-height: 23px;
+  margin-inline: 24px;
+}
