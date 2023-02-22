@@ -608,6 +608,10 @@ main > article > main {
 
 /* .haba */
 
+.habala .links a:not(.author) {
+  justify-content: space-evenly;
+}
+
 .habala .popup {
   color: black;
 }
@@ -615,7 +619,7 @@ main > article > main {
 .habala header :not(.author) {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   -webkit-text-stroke: 1px black;
 }
 .habala .zion p {
