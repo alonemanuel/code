@@ -384,8 +384,9 @@ function main() {
 
     initScrollToTop();
 
-    initDrawing();
-    animate();
+    // if ()
+    // initDrawing();
+    // animate();
 
 
 }

@@ -616,7 +616,7 @@ main > article > main {
   color: black;
 }
 
-.habala header {
+.habala header :not(.author) {
   display: flex;
   align-items: center;
   justify-content: center;
