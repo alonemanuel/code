@@ -118,9 +118,9 @@ video {
 /* Utilities */
 
 .habala {
-  --accent-color: rgb(75, 59, 31);
-  --light-color: rgb(155, 155, 155);
-  --dark-color: rgb(161, 1, 1);
+  --accent-color: rgb(50 36 11);
+  --dark-color: rgb(255, 255, 255);
+  --light-color: rgb(120, 23, 23);
   --font-running-serif: 400 2rem/2.5rem NarkisTam, serif;
 }
 
@@ -512,6 +512,7 @@ img.side {
   position: absolute;
   left: 50%;
   text-align: center;
+  z-index: 11111112;
 }
 
 .small.centered {
@@ -595,4 +596,37 @@ main > article > main {
 
 #siteLogo {
   cursor: pointer;
+}
+
+.habala article header {
+  background-color:var(--accent-color);
+  z-index: 11111111;
+
+}
+.habala article header {
+  /* background-color:var(--accent-color);
+  z-index: 9999999; */
+  padding-inline: 10px;
+
+}
+
+/* .haba */
+
+.habala .popup {
+  color: black;
+}
+
+.habala header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-text-stroke: 1px black;
+}
+.habala p {
+  -webkit-text-stroke: 1px black;
+
+}
+
+.habala h1.title {
+  color: white;
 }
