@@ -71,6 +71,10 @@
   --light-color: white;
 }
 
+.popup h2 {
+  text-align: center;
+}
+
 /* Reset rules */
 
 *,
