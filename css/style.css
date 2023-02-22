@@ -588,3 +588,7 @@ main > article > main {
 .dark-bg li{
   /* background-color: red !important; */
 }
+
+#siteLogo {
+  cursor: pointer;
+}

@@ -59,7 +59,10 @@ function customizeTheme() {
     // });
 }
 
-
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
 
 
 let NUM_DOTS = 12;
@@ -359,6 +362,11 @@ function initDrawing() {
 
 }
 
+function initScrollToTop() {
+    let siteLogo = document.getElementById('siteLogo');
+    siteLogo.addEventListener('click', topFunction);
+}
+
 function main() {
     // activateTooltipster();
     customizeTheme();
@@ -373,6 +381,8 @@ function main() {
     setHeadersClicks();
     // setProgBars();
 
+
+    initScrollToTop();
 
     initDrawing();
     animate();
