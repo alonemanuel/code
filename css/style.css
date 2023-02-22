@@ -576,6 +576,7 @@ main > article > main {
 
 
 .trail {
+  z-index: -20;
   position: absolute;
   height: 3px;
   width: 3px;
@@ -585,5 +586,5 @@ main > article > main {
 }
 
 .dark-bg li{
-  background-color: red !important;
+  /* background-color: red !important; */
 }
