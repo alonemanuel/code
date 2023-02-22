@@ -131,7 +131,7 @@ video {
 }
 
 .wide-cols .grid-cols {
-  grid-template-columns: repeat(auto-fit, minmax(120ch, 3fr));
+  grid-template-columns: repeat(auto-fit, minmax(60ch, 2fr));
 }
 
 .narrow-grid {
@@ -447,12 +447,17 @@ body::-webkit-scrollbar {
 }
 
 .dark-bg {
-  --accent-color: red;
+  --accent-color: white;
   --dark-color: white;
   --light-color: black;
   /* background-color: black;
   color: white; */
 }
+
+.dark-bg img {
+  filter: invert();
+}
+
 
 article > p {
 }
@@ -577,4 +582,8 @@ main > article > main {
   background: white;
   color: white;
   border-radius: 2px;
+}
+
+.dark-bg li{
+  background-color: red !important;
 }

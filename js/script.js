@@ -63,7 +63,7 @@ function customizeTheme() {
 
 
 let NUM_DOTS = 12;
-let FADE_FACTOR = .8;
+let FADE_FACTOR = .9;
 
 let dots = [];
 let mouse = {
