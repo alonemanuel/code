@@ -455,8 +455,8 @@ body::-webkit-scrollbar {
 }
 
 body.dark-bg {
-  height: 100vh;
-  overflow: hidden;
+  height: 100vh; 
+   /* overflow: hidden; */
 }
 
 .dark-bg article main ol {
@@ -486,9 +486,8 @@ body.dark-bg {
   padding-top: 0;
 }
 
-
 .bottom-grad {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   background-image: linear-gradient(0, white, white, transparent, transparent);
   width: 100%;
@@ -498,19 +497,33 @@ body.dark-bg {
   z-index: 9999;
 }
 
-.dark-bg article p{
+.dark-bg article li {
+  cursor: pointer;
   font-size: 0.5rem;
   /* text-decoration-thickness: 0.4rem; */
   /* text-decoration-style: ; */
   line-height: normal;
 }
 
-.dark-bg article .bigFont{
-  font-size: 1rem;
-  background-color: red;
-
+.dark-bg article p {
+  font-size: inherit;
+  /* text-decoration-thickness: 0.4rem; */
+  /* text-decoration-style: ; */
+  line-height: inherit;
 }
 
+.dark-bg article .bigFont {
+  font-size: 1rem;
+  position: absolute;
+  width: 80vw;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-inline: 8px;
+  /* transition: font-size 0.2s; */
+  backdrop-filter: blur(32px);
+}
 
 article > p {
 }
